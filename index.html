@@ -2,51 +2,124 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>alphabet clash pro</title>
-    <!-- daisy UI and tailwind -->
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- google font poppins and anton -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>alphabet clash pro</title>
+  <!-- daisy UI and tailwind -->
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- google font poppins and anton -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
-    <style>
-       .font-poppins{
-        font-family: "Poppins", sans-serif;
-       }
-       .font-antons{
-        font-family: "Anton", sans-serif;
-        font-weight: 400;
-       }
-
-    </style>    
-
-    <!-- costom css style -->
-        <script>
-            tailwind.config = {
-              theme: {
-                extend: {
-                  colors: {
-                    clifford: '#da373d',
-                  }
-                }
-              }
-            }
-          </script>
+  <!-- style css link  -->
+  <link rel="stylesheet" href="style file/style.css">
+ 
+  <!-- costom css style -->
+  
 </head>
 
 <body>
-    <header></header>
-    <main>
+  <main class="bg-[#010313] min-h-screen bg-[url(images/background.png)] bg-no-repeat bg-center">
+    <!-- home secton  -->
+    <section id="home-screen" class="home min-h-screen flex flex-col justify-center items-center  ">
+      <div class="flex flex-col items-center gap-10">
+        <h1 class="text-8xl font-antons font-normal  text-white uppercase">
+          ALPHABET CLASH PRO
+        </h1>
+        <p class="text-white font-poppins font-medium text-2xl">Unleash Your Keyboard Kung Fu : Press “Enter” to Play
+        </p>
+        <button onclick="play()" class="btn bg-white text-[#010313] rounded-xl  px-6 text-2xl font-semibold font-poppins ">Play
+          Now</button>
 
-    </main>
-    <footer></footer>
+      </div>
+    </section>
+    <!-- keyboard and screen  section  -->
+    <section id="playground" class=" hidden">
+      <div class="flex flex-col justify-center items-center gap-20 pt-20">
+        <!-- screen div -->
+        <div
+          class="artboard artboard-horizontal phone-6 text-white border-[20px] rounded-2xl border-[#010313CC] bg-[#FFFFFFB3]">
 
+          <div class="flex justify-center ">
+            <p class="bg-[#2F2941] font-poppins text-[18px] text-white font-medium px-6 py-2 rounded-b-xl">Don't watch
+              keyboard while playing...</p>
+          </div>
+          <div class="flex justify-center items-center h-full">
+            <p id="current-alphabet" class="text-9xl text-black font-poppins font-semibold uppercase">Y</p>
+          </div>
+
+        </div>
+        <!-- keyboard div -->
+        <div class="font-poppins font-medium text-[#010313] text-[20px]">
+          <div class="flex justify-center gap-1 my-1 w-full">
+            <kbd id="q" class="kbd">q</kbd>
+            <kbd id="w" class="kbd">w</kbd>
+            <kbd id="e" class="kbd">e</kbd>
+            <kbd id="r" class="kbd">r</kbd>
+            <kbd id="t" class="kbd">t</kbd>
+            <kbd id="y" class="kbd">y</kbd>
+            <kbd id="u" class="kbd">u</kbd>
+            <kbd id="i" class="kbd">i</kbd>
+            <kbd id="o" class="kbd">o</kbd>
+            <kbd id="p" class="kbd">p</kbd>
+          </div>
+          <div class="flex justify-center gap-1 my-1 w-full">
+            <kbd id="a" class="kbd">a</kbd>
+            <kbd id="s" class="kbd">s</kbd>
+            <kbd id="d" class="kbd">d</kbd>
+            <kbd id="f" class="kbd">f</kbd>
+            <kbd id="g" class="kbd">g</kbd>
+            <kbd id="h" class="kbd">h</kbd>
+            <kbd id="j" class="kbd">j</kbd>
+            <kbd id="k" class="kbd">k</kbd>
+            <kbd id="l" class="kbd">l</kbd>
+          </div>
+          <div class="flex justify-center gap-1 my-1 w-full">
+            <kbd id="z" class="kbd">z</kbd>
+            <kbd id="x" class="kbd">x</kbd>
+            <kbd id="c" class="kbd">c</kbd>
+            <kbd id="v" class="kbd">v</kbd>
+            <kbd id="b" class="kbd">b</kbd>
+            <kbd id="n" class="kbd">n</kbd>
+            <kbd id="m" class="kbd">m</kbd>
+            <kbd id="/" class="kbd">/</kbd>
+          </div>
+        </div>
+        <!-- life score div -->
+        <div class="flex justify-between  w-3/4 ">
+          <button class="btn bg-[#894189] border-[#894189] font-poppins text-white text-[20px] rounded-full">
+            life <img src="images/dollar.svg.svg" alt="">
+            <span id="lifeline-score">5</span>
+
+          </button>
+          <button class="btn bg-[#360490] border-[#360490] font-poppins text-white text-[20px] rounded-full">
+            Score <img src="images/heart.svg.svg" alt="">
+            <span id="current-score">0</span>
+
+          </button>
+
+        </div>
+      </div>
+
+
+    </section>
+    <section id="score" class=" flex justify-center items-center  min-h-screen hidden">
+      <div class="space-y-6 flex flex-col justify-center items-center bg-[#ffffff33] rounded-xl p-10">
+        <p class="text-4xl font-poppins  text-white">Game Over!</p>
+        <p class="text-6xl font-poppins  text-white"> <span class="font-extrabold">Score :</span > <span id="show-score" class="font-semibold">14</span></p>
+        <button onclick="play()" class="btn bg-white text-[#010313] rounded-xl  px-6 text-2xl font-semibold font-poppins ">Play
+          Again</button>
+          <p class="text-xl text-center text-white font-poppins font-medium">Practice will make you Pro</p>
+      </div>
+
+    </section>
+  </main>
+  <script src="scripts/utility.js"></script>
+  <script src="scripts/alphabet_clash.js"></script>
 </body>
 
 </html>
