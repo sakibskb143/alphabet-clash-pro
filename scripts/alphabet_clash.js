@@ -87,7 +87,7 @@ function continueGame() {
 
 function play() {
     hideElementbyId('home-screen');
-    hideElementbyId('show-score');
+    hideElementbyId('score');
     showElementbyId('playground');
  
 
@@ -102,9 +102,19 @@ function play() {
 function gameOver() {
     hideElementbyId('playground');
     showElementbyId('score');
+
+
+    // updated score
     const finalScore = getTextElementValuebyId('current-score');
-    // document.getElementById('show-score').innerText = finalScore ;
+    
     updatedTextElemntValuebyId('show-score',finalScore);
+    
+
+    // clear the last selected alphabet highlight
+    const currentAlphabet = getElementTextById('current-alphabet');
+
+    removeBackgroundColorbyId(currentAlphabet);
+
 
 
 }
